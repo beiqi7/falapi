@@ -82,6 +82,22 @@ export default function Home() {
         <h1 className="text-3xl font-bold text-center">图片转视频生成器</h1>
         
         <div className="space-y-4">
+          <div className="space-y-4 mb-8">
+            <input
+              type="password"
+              value={apiKey}
+              onChange={(e) => {
+                setApiKey(e.target.value);
+                setApiKeyError('');
+              }}
+              placeholder="请输入您的 FAL.AI API 密钥"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            {apiKeyError && (
+              <div className="text-red-500 text-sm">{apiKeyError}</div>
+            )}
+          </div>
+
           <div className="flex flex-col items-center justify-center p-8 border-2 border-dashed rounded-lg border-gray-300 hover:border-primary transition-colors">
             <input
               type="file"
@@ -135,19 +151,3 @@ export default function Home() {
     </main>
   );
 }
-
-<div className="space-y-4 mb-8">
-            <input
-              type="password"
-              value={apiKey}
-              onChange={(e) => {
-                setApiKey(e.target.value);
-                setApiKeyError('');
-              }}
-              placeholder="请输入您的 FAL.AI API 密钥"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            {apiKeyError && (
-              <div className="text-red-500 text-sm">{apiKeyError}</div>
-            )}
-          </div>
